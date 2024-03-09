@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Model for console."""
 import cmd
+from models import storage
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -13,11 +15,11 @@ class HBNBCommand(cmd.Cmd):
         """exit the program"""
         return True
 
-    def EOF(self, line):
+    def do_EOF(self, line):
         """exit the program , end of file."""
         return True
 
-    def empty_line(self):
+    def do_empty_line(self):
         """Do nothing when an empty line is entered."""
         pass
 

@@ -4,6 +4,7 @@ BaseModel class.
 """
 import uuid
 from datetime import datetime
+import models
 
 
 class BaseModel:
@@ -21,9 +22,14 @@ class BaseModel:
                 else:
                     setattr(self, key, value)
 
+        models.storage.new(self)
+
     def save(self):
-        """"""
+        """
+
+        """
         self.updated_at = datetime.utcnow()
+        models.storage.save()
 
     def __str__(self):
         return "[{}] ({}) {}".format(

@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def empty_line(self):
-        """shouldn't execute anything"""
+        """Do nothing when an empty line is entered."""
         pass
 
 if __name__ == '__main__':

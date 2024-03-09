@@ -6,7 +6,8 @@ from models.base_model import BaseModel
 
 
 class FileStorage:
-    __file_path = ""
+    """storing the data."""
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -33,7 +34,7 @@ class FileStorage:
         """
         This method deserializes the JSON file
         """
-        if os.path.isfile(FileStorage.__file_path):
+        if os.path.exists(FileStorage.__file_path) and os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 try:
                     obj_dict = json.load(file)

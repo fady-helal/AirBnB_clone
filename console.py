@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Model for console."""
 import cmd
 
 

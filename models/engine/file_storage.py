@@ -34,7 +34,8 @@ class FileStorage:
         """
         This method deserializes the JSON file
         """
-        if os.path.exists(FileStorage.__file_path) and os.path.isfile(FileStorage.__file_path):
+        if os.path.exists(FileStorage.__file_path) and\
+           os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 try:
                     obj_dict = json.load(file)

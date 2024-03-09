@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
-Module for the State class.
+Module for the City class.
 """
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class City(BaseModel):
     """
-    Represent a state.
+    Represent a city.
     """
+    state_id = ""
     name = ""

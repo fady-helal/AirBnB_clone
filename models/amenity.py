@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""
-Module for the State class.
-"""
+"""Defines the Amenity class."""
 from models.base_model import BaseModel
 
 
-class State(BaseModel):
+class Amenity(BaseModel):
     """
-    Represent a state.
+    Represent an amenity.
     """
+
     name = ""

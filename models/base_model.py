@@ -8,6 +8,7 @@ import models
 
 
 class BaseModel:
+    """BaseModel of project."""
     def __init__(self, *args, **kwargs):
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid.uuid4)
@@ -26,7 +27,7 @@ class BaseModel:
 
     def save(self):
         """
-
+        save the data.
         """
         self.updated_at = datetime.utcnow()
         models.storage.save()
@@ -37,7 +38,7 @@ class BaseModel:
             )
 
     def to_dict(self):
-        """"""
+        """ convert to dictionary."""
         _dict = self.__dict__.copy()
         _dict["__class__"] = self.__class__.__name__
         _dict["created_at"] = self.created_at.isoformat()

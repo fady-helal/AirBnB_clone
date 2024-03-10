@@ -94,6 +94,7 @@ class TestBaseModel_save(unittest.TestCase):
         try:
             os.rename("file.json", "tmp")
         except IOError:
+
             pass
 
     @classmethod

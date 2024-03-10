@@ -18,8 +18,8 @@ class BaseModel:
         """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.utcnow()
+        self.updated_at = datetime.utcnow()
         if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
@@ -35,10 +35,11 @@ class BaseModel:
         """
         save the data.
         """
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def __str__(self):
+        """Return the print/str representation of the BaseModel instance."""
         return "[{}] ({}) {}".format(
             self.__class__.__name__, self.id, self.__dict__
             )

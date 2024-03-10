@@ -28,8 +28,8 @@ class BaseModel:
                     setattr(self, key, datetime.strptime(value, time_format))
                 else:
                     setattr(self, key, value)
-
-        models.storage.new(self)
+        else:
+            models.storage.new(self)
 
     def save(self):
         """

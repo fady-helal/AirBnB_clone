@@ -18,8 +18,8 @@ class BaseModel:
         """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.utcnow()
-        self.updated_at = datetime.utcnow()
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if kwargs:
             for key, value in kwargs.items():
                 if key == "__class__":
@@ -35,7 +35,7 @@ class BaseModel:
         """
         save the data.
         """
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.today()
         models.storage.save()
 
     def __str__(self):

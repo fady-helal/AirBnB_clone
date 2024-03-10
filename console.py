@@ -17,8 +17,8 @@ class HBNBCommand(cmd.Cmd):
     HBNBCommand console class
     """
     prompt = "(hbnb) "
-    valid_classes = ["BaseModel", "User", "Amenity",
-                        "Place", "Review", "State", "City"]
+    valid_classes = ["BaseModel", "User", "Amenity",\
+                "Place", "Review", "State", "City"]
 
     def quit(self, line):
         """exit the program"""
@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
             print(new_instance.id)
 
-    def show(self,args):
+    def show(self, args):
         """ Prints the string representation of an
             instance based on the class name and id
         """
@@ -83,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             else:
                 print("** no instance found **")
-    
+
     def do_all(self, arg):
         """
         Print the string representation of all instances or a specific class.
@@ -99,6 +99,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in objects.items():
                 if key.split('.')[0] == token[0]:
                     print(str(value))
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

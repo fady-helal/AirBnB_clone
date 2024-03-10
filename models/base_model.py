@@ -38,16 +38,20 @@ class BaseModel:
         self.updated_at = datetime.utcnow()
         models.storage.save()
 
-    def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
-        return "[{}] ({}) {}".format(
-            self.__class__.__name__, self.id, self.__dict__
-            )
-
     def to_dict(self):
-        """ convert to dictionary."""
+        """Return the dictionary of the BaseModel instance.
+
+        Includes the key/value pair __class__ representing
+        the class name of the object.
+        """        
         _dict = self.__dict__.copy()
         _dict["__class__"] = self.__class__.__name__
         _dict["created_at"] = self.created_at.isoformat()
         _dict["updated_at"] = self.updated_at.isoformat()
         return _dict
+
+    def __str__(self):
+        """Return the print/str representation of the BaseModel instance."""
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__
+            )

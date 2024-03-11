@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""test file storage.py
+"""
+test file storage.py
 """
 import os
 import json

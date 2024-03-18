@@ -12,14 +12,12 @@ from models.review import Review
 
 
 class FileStorage:
-    """Represent an abstracted storage engine.
-
-    Attributes:
-        __file_path (str): The name of the file to save objects to.
-        __objects (dict): A dictionary of instantiated objects.
+    """
+    Represent storage engine.
     """
     __file_path = "file.json"
     __objects = {}
+
     def all(self):
         """ returns the dictionary __objects"""
         return FileStorage.__objects

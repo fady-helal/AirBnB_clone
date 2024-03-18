@@ -2,6 +2,7 @@
 """Defines the HBnB console."""
 import cmd
 import re
+import shlex
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
@@ -84,17 +85,20 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, arg):
-        """Usage: create <class>
-        Create a new class instance and print its id.
         """
-        argl = parse(arg)
-        if len(argl) == 0:
+        Create a new instance of BaseModel and save it to the JSON file.
+        Usage: create <class_name>
+        """
+        token = shlex.split(arg)
+
+        if len(token) == 0:
             print("** class name missing **")
-        elif argl[0] not in HBNBCommand.__classes:
+        elif token[0] not in self.__classes:
             print("** class doesn't exist **")
         else:
-            print(eval(argl[0])().id)
+            new_instance = eval(f"{token[0]}()")
             storage.save()
+            print(new_instance.id)
 
     def do_show(self, arg):
         """Usage: show <class> <id> or <class>.show(<id>)
